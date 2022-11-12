@@ -15,10 +15,10 @@ pipeline {
                        junit allowEmptyResults: true, testResults: '**\\surefire-reports\\**.xml'
                    }
                }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+          stage('Testing frontend'){
+                  steps{
+                      echo "Testing frontend ${TESTING_FRONTEND}"
+                  }
+              }
     }
 }
