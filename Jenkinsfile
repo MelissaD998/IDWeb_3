@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                  bat 'mvn install -DskipTests %WORKSPACE%\\backend\\imperblog-backend'
+                  bat 'mvn install -DskipTests --file ./backend/imperblog-backend'
                   bat 'npm install %WORKSPACE%\\frontend-angular\\imperblog-frontend'
             }
         }
