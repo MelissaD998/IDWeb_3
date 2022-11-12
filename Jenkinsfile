@@ -15,10 +15,21 @@ pipeline {
                        junit allowEmptyResults: true, testResults: '**\\surefire-reports\\**.xml'
                    }
                }
-          stage('Testing frontend'){
+
+          stage('Run frontend tests'){
                   steps{
                       echo "Testing frontend ${TESTING_FRONTEND}"
                   }
               }
+              stage('Delete workspace'){
+                          when{
+                              expression { CLEAN_WORKSPACE == "true" }
+                          }
+                          steps{
+                              echo "Deleting workspace ${CLEAN_WORKSPACE}"
+                              deleteDir()
+                          }
+                      }
+                  }
     }
 }
