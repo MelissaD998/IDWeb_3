@@ -8,11 +8,14 @@ pipeline {
                   bat 'npm install %WORKSPACE%\\frontend-angular\\imperblog-frontend'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
+       stage('Testing backend'){
+                   steps{
+                       echo 'Running backend tests'
+                       bat 'mvn test --file ./backend/imperblog-backend'
+//                        junit allowEmptyResults: true, testResults: '**\\surefire-reports\\**.xml'
+//                        echo 'Backend tests finished execution'
+                   }
+               }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
