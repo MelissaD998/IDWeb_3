@@ -31,15 +31,15 @@ pipeline {
     }
   }
   post{
-      success{
-              mail subject: "Jenkins job ${env.JOB_NAME} result",
-              body: "The build with number ${env.BUILD_NUMBER} has status ${currentBuild.currentResult}. To view result access next link: ${BUILD_URL}",
-              to: 'melissadragutan@gmail.com'
-          }
-          failure{
-                mail subject: "Jenkins job ${env.JOB_NAME} result",
-                body: "The build with number ${env.BUILD_NUMBER} has status ${currentBuild.currentResult}. To view result access next link: ${BUILD_URL}",
-                to: 'melissadragutan@gmail.com'
-          }
-      }
+    success{
+      mail subject: "Jenkins job ${env.JOB_NAME} result",
+           body: "The build with number ${env.BUILD_NUMBER} has status ${currentBuild.currentResult}. To view result access next link: ${BUILD_URL}",
+           to: 'melissadragutan@gmail.com'
+    }
+    failure{
+      mail subject: "Jenkins job ${env.JOB_NAME} result",
+           body: "The build with number ${env.BUILD_NUMBER} has status ${currentBuild.currentResult}. To view result access next link: ${BUILD_URL}",
+           to: 'melissadragutan@gmail.com'
+    }
+  }
 }
