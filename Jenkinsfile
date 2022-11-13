@@ -12,7 +12,7 @@ pipeline {
       steps{
         echo 'Running backend tests'
         bat 'mvn test --file ./backend/imperblog-backend'
-        junit allowEmptyResults: true, testResults: '**\\surefire-reports.xml'
+        junit allowEmptyResults: true, testResults: '**\\surefire-reports\\**.xml'
       }
     }
     stage('Run frontend tests'){
