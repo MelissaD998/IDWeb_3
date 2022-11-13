@@ -16,7 +16,10 @@ pipeline {
       }
     }
     stage('Run frontend tests'){
-      steps{
+      when {
+        expression { TESTING_FRONTEND == "true" }
+       }
+      steps {
         echo "Testing frontend ${TESTING_FRONTEND}"
       }
     }
