@@ -33,10 +33,12 @@ pipeline {
   post{
       success{
               mail body: "Test email",
+              subject: "Test email",
               to: 'melissadragutan@gmail.com'
           }
           failure{
               mail body: "Test email",
+              subject: "Test email",
               to: 'melissadragutan@gmail.com'
           }
       }
