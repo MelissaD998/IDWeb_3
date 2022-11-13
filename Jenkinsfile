@@ -32,14 +32,14 @@ pipeline {
   }
   post{
       success{
-              mail body: "Test email",
-              subject: "Test email",
+              mail subject: "Jenkins job ${env.JOB_NAME} result",
+              body: "The build with number ${env.BUILD_NUMBER} has status ${currentBuild.currentResult}. To view result access next link: ${BUILD_URL}",
               to: 'melissadragutan@gmail.com'
           }
           failure{
-              mail body: "Test email",
-              subject: "Test email",
-              to: 'melissadragutan@gmail.com'
+                mail subject: "Jenkins job ${env.JOB_NAME} result",
+                body: "The build with number ${env.BUILD_NUMBER} has status ${currentBuild.currentResult}. To view result access next link: ${BUILD_URL}",
+                to: 'melissadragutan@gmail.com'
           }
       }
 }
