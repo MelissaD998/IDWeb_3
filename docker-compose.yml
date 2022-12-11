@@ -1,0 +1,23 @@
+version: '1.1.1'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: imperblog_bd
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1111
+    ports:
+      - "5432:5432"
+  backend:
+    build: backend/imperblog-backend/.
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: frontend-angular/imperblog-frontend/.
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
